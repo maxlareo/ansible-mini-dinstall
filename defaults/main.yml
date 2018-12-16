@@ -1,0 +1,16 @@
+---
+minidinstall_user: "mini-dinstall"
+minidinstall_user_home: "/data/mini-dinstall"
+minidinstall_basedir: "{{ minidinstall_user_home }}/debpkg"
+minidinstall_conf: /etc/mini-dinstall/mini-dinstall.conf
+minidinstall_sshkeys: []
+
+minidinstall_config:
+  archivedir: "{{ minidinstall_basedir }}"
+  archive_style: flat
+  generate_release: 1
+  incoming_permissions: "0750"
+
+minidinstall_repositories:
+  unstable:
+    release_codename: sid

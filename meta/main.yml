@@ -1,0 +1,17 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: mini-dinstall
+  author: Maxime Lareo
+  description: daemon for updating Debian packages in a repository
+  license: MIT
+  min_ansible_version: 2.5
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+  galaxy_tags:
+    - mini-dinstall
+    - apt
+    - packaging
