@@ -11,6 +11,7 @@
   user:
     name: "{{ minidinstall_user }}"
     home: "{{ minidinstall_user_home }}"
+    create_home: false
     system: true
     shell: /bin/bash
 
