@@ -1,5 +1,8 @@
 # [Mini-dinstall](https://manpages.debian.org/stretch/mini-dinstall/mini-dinstall.1.en.html)
 
+[![Build Status](https://travis-ci.com/maxlareo/ansible-mini-dinstall.svg?branch=master)](https://travis-ci.com/maxlareo/ansible-mini-dinstall)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-mini--dinstall-blue.svg)](https://galaxy.ansible.com/maxlareo/mini_dinstall)
+
 Install and configure mini-dinstall APT repository tool.
 
 ## Requirements
