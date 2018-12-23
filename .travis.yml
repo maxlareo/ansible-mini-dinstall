@@ -1,0 +1,26 @@
+---
+sudo: required
+language: python
+services: docker
+
+env:
+  matrix:
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian9
+      MOLECULE_ANSIBLE_VERSION: 2.6.0
+    - MOLECULE_DISTRO: debian9
+      MOLECULE_ANSIBLE_VERSION: 2.5.0
+
+install:
+  - pip install molecule docker
+  - >
+    if [[ -n $MOLECULE_ANSIBLE_VERSION ]]; then
+      pip install ansible==$MOLECULE_ANSIBLE_VERSION;
+    fi
+
+script:
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
