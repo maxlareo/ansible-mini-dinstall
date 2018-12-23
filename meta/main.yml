@@ -3,6 +3,7 @@ dependencies: []
 
 galaxy_info:
   role_name: mini-dinstall
+  github_branch: master
   author: Maxime Lareo
   description: daemon for updating Debian packages in a repository
   license: MIT
@@ -11,7 +12,10 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
+    - name: Ubuntu
+      versions:
+        - bionic
   galaxy_tags:
-    - mini-dinstall
+    - minidinstall
     - apt
     - packaging
