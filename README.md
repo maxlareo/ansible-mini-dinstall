@@ -81,25 +81,27 @@ The 2 main options are:
 1. to use a  GPG key created for the occasion, store that key (including the
  private part) on the apt server and use the mini-dinstall contrib script
  sign-release.sh by adding something like the following to your
- mini-dinstall.conf:
+ mini-dinstall.conf:  
  _release_signscript = ~/bin/sign-release.sh_
 
 2. to use some script to sign the Release file remotely and send the resulting
  deatched signature back to the apt server just after the mini-dinstall pulse;
- that way you can sign with your own private key.
+ that way you can sign with your own private key.  
  example: [zack sign-remote script](https://upsilon.cc/~zack/blog/posts/2009/04/howto:_uploading_to_people.d.o_using_dput/sign-remote)
 
-### Importing the pgp key of the apt repo
+### Importing the apt repository pgp key into local apt keychain
 
 To fetch the signed apt repositories Release, the public key have to be added
 to the apt-key store using `apt-key add`.
 
 ### Add the repo urls in your apt sources.list
 
-The mini-dinstall syntax to use the repo, for flat architecture are
-`deb http://fqdn.repo/ repository/`.
+> To be able to use the apt repository a http server must be set properly
 
-example: `deb http://fqdn.repo/ unstable/`
+The mini-dinstall syntax to use the repo, for flat architecture are
+`deb http://fqdn/ repository/`.
+
+example: `deb http://apt.example.repo/ unstable/`
 
 ### Dput
 
@@ -107,17 +109,18 @@ Example of ~/.dput.cf file:
 
 ```
 [unstable]
-fqdn = fqdn.repo
+fqdn = apt.example.repo
 login = mini-dinstall
 incoming = /data/mini-dinstall/debpkg/mini-dinstall/incoming
 method = scp
 run_dinstall = 0
-post_upload_command = ssh -l mini-dinstall fqdn.repo \
+post_upload_command = ssh -l mini-dinstall apt.example.repo \
   "mini-dinstall -c /etc/mini-dinstall/mini-dinstall.conf -b" \
-  && sign-remote mini-dinstall@fqdn.repo:~/debpkg/unstable/Release
+  && sign-remote mini-dinstall@apt.example.repo:~/debpkg/unstable/Release
 ```
 
 ## Todo
 
 + Add HTTP config management
 + Add GPG host key management for use case [1](#signing-the-release-file).
++ Handle mini-dinstall server mode
