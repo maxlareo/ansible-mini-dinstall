@@ -45,6 +45,6 @@
 - name: Run mini-dinstall to create the tree in batch mode
   become: true
   become_user: "{{ minidinstall_user }}"
-  command: "mini-dinstall -c {{ minidinstall_conf}} -b"
+  command: "mini-dinstall -c {{ minidinstall_conf }} -b"
   args:
     creates: "{{ minidinstall_basedir }}/mini-dinstall"
