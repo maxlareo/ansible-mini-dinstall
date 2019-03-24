@@ -1,11 +1,11 @@
 [DEFAULT]
-{% for name, value in minidinstall_config.iteritems() %}
+{% for name, value in minidinstall_config.items() %}
 {{ name | lower }} = {{ value | lower }}
 {% endfor %}
 
-{% for repo, config in minidinstall_repositories.iteritems() %}
+{% for repo, config in minidinstall_repositories.items() %}
 [{{ repo | lower }}]
-{% for name, value in config.iteritems() %}
+{% for name, value in config.items() %}
 {{ name | lower }} = {{ value | lower }}
 {% endfor %}
 
